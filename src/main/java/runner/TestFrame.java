@@ -1,10 +1,9 @@
 package runner;
-        import java.awt.*;
-        import java.awt.event.ActionEvent;
-        import java.awt.event.ActionListener;
-        import java.awt.event.ComponentListener;
+import java.awt.*;
+import java.awt.event.*;
+import java.nio.file.OpenOption;
 
-        import javax.swing.*;
+import javax.swing.*;
 
 /**
  * Created by Sergey on 13.06.17.
@@ -23,7 +22,52 @@ public class TestFrame extends JFrame {
 
         class Exec1 extends JPanel{
             Exec1 () {
-                JButton button1 = new JButton("Clear Appdata");
+
+                //Configure visual settings of Button1
+                JButton button1 = new JButton("Clear AppData");
+                button1.setFont(font);
+                button1.setVisible(true);
+                button1.setSize(313, 110);
+                add(button1);
+
+                //Configure visual setting of Button2
+                JButton button2 = new JButton("Open AppData");
+                button2.setFont(font);
+                button2.setVisible(true);
+                button2.setSize(313, 110);
+                add(button2);
+
+                //Add ActionListeners of Button1
+                button1.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        //Button1 will perform next actions
+                        // СМОТРИ СЮДА http://forum.sources.ru/index.php?showtopic=133192&view=showall
+                    }
+                });
+
+                //Add KeyListener for Button1 press emulation by pressing Num1 button
+                button1.addKeyListener(new KeyAdapter(){
+                    public void keyPressed(KeyEvent ke){
+
+                    }
+                });
+
+                button2.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        //Button2 will perform next actions
+
+                    }
+                });
+
+            }
+        }
+
+        class Link2 extends JPanel{
+            Link2 () {
+                JButton button1 = new JButton("Open Squash");
+
                 button1.setFont(font);
                 button1.setVisible(true);
                 button1.setSize(313, 110);
@@ -35,17 +79,13 @@ public class TestFrame extends JFrame {
                 button2.setSize(313, 110);
                 add(button2);
             }
-
         }
-
 
         tabbedPane.addTab("*.bat exec",new Exec1(){
         });
 
 
-        tabbedPane.addTab("Links",new Component() { //REFACTOR COMPONENT TO NESTED CLASS LINKS
-            JButton button = new JButton();
-
+        tabbedPane.addTab("Links",new Link2() { //REFACTOR COMPONENT TO NESTED CLASS LINKS
         });
 
 
@@ -70,5 +110,6 @@ public class TestFrame extends JFrame {
         });
     }
 
-}
 
+
+}
