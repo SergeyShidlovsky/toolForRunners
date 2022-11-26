@@ -1,7 +1,7 @@
 package tabs;
 
-import com.sshidlovsky.toolforrunners.linkenums.LinksAppDataLogs;
-import com.sshidlovsky.toolforrunners.runner.TimerTick;
+import linkenums.LinksAppDataLogs;
+import runner.TimerTick;
 
 import javax.swing.*;
 import java.awt.*;
@@ -112,6 +112,36 @@ public class AppDataLogs extends JPanel {
                         break;
                     case KeyEvent.VK_2:
                         button2.doClick();
+                        break;
+                    case KeyEvent.VK_3:
+                        button3.doClick();
+                        break;
+                    case KeyEvent.VK_4:
+                        button4.doClick();
+                        break;
+                    case KeyEvent.VK_5:
+                        button5.doClick();
+                        break;
+                    case KeyEvent.VK_6:
+                        button6.doClick();
+                        break;
+                    case KeyEvent.VK_7:
+                        button7.doClick();
+                        break;
+                    case KeyEvent.VK_8:
+                        button8.doClick();
+                        break;
+                    case KeyEvent.VK_9:
+                        button9.doClick();
+                        break;
+                    case KeyEvent.VK_0:
+                        button10.doClick();
+                        break;
+                    case KeyEvent.VK_MINUS:
+                        button11.doClick();
+                        break;
+                    case KeyEvent.VK_EQUALS:
+                        button12.doClick();
                         break;
                 }
             }

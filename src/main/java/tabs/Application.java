@@ -1,7 +1,7 @@
 package tabs;
 
-import com.sshidlovsky.toolforrunners.linkenums.LinksApplication;
-import com.sshidlovsky.toolforrunners.runner.TimerTick;
+import linkenums.LinksApplication;
+import runner.TimerTick;
 
 import javax.swing.*;
 import java.awt.*;

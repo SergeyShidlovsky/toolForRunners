@@ -1,6 +1,7 @@
 package runner;
+import tabs.*;
+
 import java.awt.*;
-import java.awt.event.*;
 
 import javax.swing.*;
 
@@ -13,14 +14,14 @@ import javax.swing.*;
 public class TestFrame extends JFrame {
     int quantity = 9;
     private Timer timer;
-    protected Font font;
-    protected Font labelFont;
-    protected JLabel[] statusLabel;
-    protected JTabbedPane tabbedPane;
+    private Font font;
+    private Font labelFont;
+    private JLabel[] statusLabel;
+    private JTabbedPane tabbedPane;
 
     public TestFrame() {
 
-        super("Tool For QA Engineers");
+        super("Tool For Runners");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //Font of Buttons and Labels
@@ -69,7 +70,6 @@ public class TestFrame extends JFrame {
         setVisible(true);
         add(tabbedPane);
     }
-    }
 
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
@@ -79,7 +79,4 @@ public class TestFrame extends JFrame {
             }
         });
     }
-
-
-
 }
