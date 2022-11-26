@@ -9,7 +9,6 @@
 
 # Maven
 log/
-target/
 
 # Package Files
 *.jar
@@ -23,3 +22,4 @@ target/
 #Root files
 *.iml
 /.idea/
+/.idea/*
