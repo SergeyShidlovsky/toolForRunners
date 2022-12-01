@@ -36,7 +36,7 @@ public class Registry extends JPanel {
                         Runtime.getRuntime().exec(command);
                         timeReset(delay, timer, tm);
                     } catch (Exception r) {
-                        tm.showException();
+                        tm.showError();
                     }
                 }
             }

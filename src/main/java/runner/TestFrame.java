@@ -2,6 +2,7 @@ package runner;
 import tabs.*;
 
 import java.awt.*;
+import java.util.List;
 
 import javax.swing.*;
 
@@ -16,7 +17,7 @@ public class TestFrame extends JFrame {
     private Timer timer;
     private Font font;
     private Font labelFont;
-    private JLabel[] statusLabel;
+    private List<JLabel> statusLabelList;
     private JTabbedPane tabbedPane;
 
     public TestFrame() {
@@ -33,34 +34,34 @@ public class TestFrame extends JFrame {
         tabbedPane.setFont(font);
 
         //Creating an array of statusLabels
-        statusLabel = new JLabel[quantity];
+        statusLabelList = new JLabel[quantity];
         for (int i = 0; i < quantity; i++) {
-            statusLabel[i] = new JLabel("                      Start Script                      ");
-            statusLabel[i].setFont(labelFont);
-            statusLabel[i].setVisible(true);
-            statusLabel[i].setSize(313, 110);
-            statusLabel[i].setHorizontalAlignment(2);
-            statusLabel[i].setLocation(200, 200);
+            statusLabelList[i] = new JLabel("                      Start Script                      ");
+            statusLabelList[i].setFont(labelFont);
+            statusLabelList[i].setVisible(true);
+            statusLabelList[i].setSize(313, 110);
+            statusLabelList[i].setHorizontalAlignment(2);
+            statusLabelList[i].setLocation(200, 200);
         }
 
         //Adding timer execution
         final TimerTick tm = new TimerTick();
-        tm.setStatusLabel(statusLabel);
+        tm.setStatusLabelList(statusLabelList);
 
         //Adding Common timer to our tool,
         timer = new Timer(1000, tm);
         tm.setTimer(timer);
 
         //Adding all tabs to tabbed pane
-        tabbedPane.addTab("AppDataLogs", new AppDataLogs(timer, tm, font, statusLabel));
-        tabbedPane.addTab("Application", new Application(timer, tm, font, statusLabel));
-        tabbedPane.addTab("Dumps", new Dumps(timer, tm, font, statusLabel));
-        tabbedPane.addTab("Execute", new Execute(timer, tm, font, statusLabel));
-        tabbedPane.addTab("Installation", new Installation(timer, tm, font, statusLabel));
-        tabbedPane.addTab("Links", new Links(timer, tm, font, statusLabel));
-        tabbedPane.addTab("Network", new Network(timer, tm, font, statusLabel));
-        tabbedPane.addTab("Registry", new Registry(timer, tm, font, statusLabel));
-        tabbedPane.addTab("Services", new Services(timer, tm, font, statusLabel));
+        tabbedPane.addTab("AppDataLogs", new AppDataLogs(timer, tm, font, statusLabelList));
+        tabbedPane.addTab("Application", new Application(timer, tm, font, statusLabelList));
+        tabbedPane.addTab("Dumps", new Dumps(timer, tm, font, statusLabelList));
+        tabbedPane.addTab("Execute", new Execute(timer, tm, font, statusLabelList));
+        tabbedPane.addTab("Installation", new Installation(timer, tm, font, statusLabelList));
+        tabbedPane.addTab("Links", new Links(timer, tm, font, statusLabelList));
+        tabbedPane.addTab("Network", new Network(timer, tm, font, statusLabelList));
+        tabbedPane.addTab("Registry", new Registry(timer, tm, font, statusLabelList));
+        tabbedPane.addTab("Services", new Services(timer, tm, font, statusLabelList));
 
         //Adding tabbed pane to jFrame and Setting preferences
         setPreferredSize(new Dimension(655, 215));

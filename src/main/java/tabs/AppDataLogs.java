@@ -7,6 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+import java.util.List;
+
 public class AppDataLogs extends JPanel {
 
     final JButton button1;
@@ -43,7 +45,7 @@ public class AppDataLogs extends JPanel {
                         Runtime.getRuntime().exec(command);
                         timeReset(delay, timer, tm);
                     } catch (Exception r) {
-                        tm.showException();
+                        tm.showError();
                     }
                 }
             }
@@ -58,7 +60,7 @@ public class AppDataLogs extends JPanel {
         add(button);
     }
 
-    public AppDataLogs(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
+    public AppDataLogs(Timer timer, TimerTick tm, Font font, List<JLabel> statusLabelList) {
 
         //Create list of buttons
         button1 = new JButton("Clean Logs [1] ");
@@ -162,7 +164,7 @@ public class AppDataLogs extends JPanel {
         button12.addKeyListener(listener0);
 
         //Add StatusLabel to tab
-        tabStatusLabel = statusLabel[0];
+        tabStatusLabel = statusLabelList.get(0);
         add(tabStatusLabel);
     }
 }
