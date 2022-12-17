@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
 
 public class Execute extends JPanel {
 
@@ -73,7 +74,7 @@ public class Execute extends JPanel {
         };
     }
 
-    public Execute(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
+    public Execute(final Timer timer, final TimerTick tm, Font font, List<JLabel> statusLabelList) {
 
         //Create list of buttons
         button1 = new JButton(" Application wizard [1] ");
@@ -122,7 +123,7 @@ public class Execute extends JPanel {
         button8.addKeyListener(listener3);
 
         //Add StatusLabel to tab
-        tabStatusLabel = statusLabel[3];
+        tabStatusLabel = statusLabelList.get(3);
         add(tabStatusLabel);
     }
 }

@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
 
 public class Services extends JPanel {
 
@@ -69,7 +70,7 @@ public class Services extends JPanel {
         };
     }
 
-    public Services(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
+    public Services(Timer timer, TimerTick tm, Font font, List<JLabel> statusLabelList) {
 
         //Create list of buttons
         button1 = new JButton("Open Services [1]");
@@ -106,7 +107,7 @@ public class Services extends JPanel {
         button5.addKeyListener(listener8);
 
         //Add StatusLabel to tab
-        tabStatusLabel = statusLabel[8];
+        tabStatusLabel = statusLabelList.get(8);
         add(tabStatusLabel);
     }
 }

@@ -6,6 +6,7 @@ import runner.TimerTick;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.List;
 
 public class Application extends JPanel {
 
@@ -19,21 +20,20 @@ public class Application extends JPanel {
     //Adding method for reset timer with new value
     // after buttons below have been pressed
     //todo Move this method to abstract class
-    public void timeReset(int seconds, Timer timer, TimerTick tm) {
-        timer.stop();             //Stopping previous timer before execution of current script
-        tm.setCountdown(seconds); //Setting time of  Script execution
-        timer.start();            //Starting timer after script initiation
+    public void timeReset(int seconds, TimerTick tm) {
+        tm.getTimer().stop();             //Stopping previous timer before execution of current script
+        tm.setCountdown(seconds);          //Setting time of  Script execution
+        tm.getTimer().start();            //Starting timer after script initiation
     }
 
-    private void addActionListenerToButton(final JButton button, final String command, final Timer timer,
-                                           final TimerTick tm, final int delay) {
+    private void addActionListenerToButton(JButton button, String command, TimerTick tm, int delay) {
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
-                //Button1 will perform next actions
+                //Button will perform next actions
                 if (ae.getSource() == button) {
                     try {
                         Runtime.getRuntime().exec(command);
-                        timeReset(delay, timer, tm);
+                        timeReset(delay, tm);
                     } catch (Exception r) {
                         tm.showError();
                     }
@@ -42,7 +42,7 @@ public class Application extends JPanel {
         });
     }
 
-    public Application(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
+    public Application( TimerTick tm, Font font, List<JLabel> statusLabelList) {
 
         //Configure visual settings of Button1
         button1 = new JButton("Restart With Cleared Appdata Programdata Restrt Service [1]");
@@ -80,16 +80,16 @@ public class Application extends JPanel {
         //Add ActionListeners on all buttons
         addActionListenerToButton(button1, LinksApplication
                 .RESTART_WITH_CLEARED_APPDATA_PROGRAMMDATA_RESTART_SERVICE
-                .getValue(), timer, tm, 1);
+                .getValue(), tm, 1);
         addActionListenerToButton(button2, LinksApplication
                 .RESTART_WITH_CLEARED_APPDATA_PROGRAMMDATA_RESTART_SERVICE_WITH_BACK_UP
-                .getValue(), timer, tm, 1);
+                .getValue(), tm, 1);
         addActionListenerToButton(button3, LinksApplication
                 .RESTART_WITH_DEBUG_LOGGING_AND_CLEARED_APPDATA_PROGRAMMDATA_RESTART_SERVICE
-                .getValue(), timer, tm, 1);
+                .getValue(), tm, 1);
         addActionListenerToButton(button4, LinksApplication
                 .RESTART_WITH_DEBUG_LOGGING_AND_CLEARED_APPDATA_PROGRAMMDATA_RESTART_SERVICE_WITH_BACK_UP
-                .getValue(), timer, tm, 1);
+                .getValue(), tm, 1);
 
         //Add KeyListener to tab
         listener = new KeyAdapter() {
@@ -119,7 +119,7 @@ public class Application extends JPanel {
         button4.addKeyListener(listener);
 
         //Add StatusLabel to tab
-        tabStatusLabel = statusLabel[1];
+        tabStatusLabel = statusLabelList.get(1);
         add(tabStatusLabel);
     }
 }

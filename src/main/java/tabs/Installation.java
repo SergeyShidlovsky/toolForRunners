@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
 
 public class Installation extends JPanel {
 
@@ -67,7 +68,7 @@ public class Installation extends JPanel {
         };
     }
 
-    public Installation(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
+    public Installation(Timer timer, TimerTick tm, Font font, List<JLabel> statusLabelList) {
 
         //Create list of buttons
         button1 = new JButton("GetInstallLog [1]");
@@ -92,7 +93,7 @@ public class Installation extends JPanel {
         button2.addKeyListener(listener4);
 
         //Add StatusLabel to tab
-        tabStatusLabel = statusLabel[4];
+        tabStatusLabel = statusLabelList.get(4);
         add(tabStatusLabel);
     }
 }

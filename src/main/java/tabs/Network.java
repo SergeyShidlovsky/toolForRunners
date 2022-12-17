@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
 
 public class Network extends JPanel {
 
@@ -68,7 +69,7 @@ public class Network extends JPanel {
         };
     }
 
-    public Network(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
+    public Network(Timer timer, TimerTick tm, Font font, List<JLabel> statusLabelList) {
 
         //Create list of buttons
         button1 = new JButton("DisableNetworkAdapter [1]");
@@ -97,7 +98,7 @@ public class Network extends JPanel {
         button3.addKeyListener(listener6);
 
         //Add StatusLabel to tab
-        tabStatusLabel = statusLabel[6];
+        tabStatusLabel = statusLabelList.get(6);
         add(tabStatusLabel);
     }
 }

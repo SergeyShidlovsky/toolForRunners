@@ -1,10 +1,12 @@
 package runner;
+
 import tabs.*;
 
-import java.awt.*;
-import java.util.List;
-
 import javax.swing.*;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by Sergey on 13.06.17.
@@ -13,40 +15,49 @@ import javax.swing.*;
 //See changelog.txt for qny questions
 
 public class TestFrame extends JFrame {
-    int quantity = 9;
-    private Timer timer;
+
     private Font font;
+    private Timer timer;
+    private int quantity;
     private Font labelFont;
-    private List<JLabel> statusLabelList;
     private JTabbedPane tabbedPane;
+    private List<JLabel> statusLabelList;
+
+    private static final String STATUS_LABEL_GAP = "                      ";
+
 
     public TestFrame() {
 
         super("Tool For Runners");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        //Setting quantity of tabs
+        quantity = 9;
+
         //Font of Buttons and Labels
-        font = new Font("Verdana", Font.LAYOUT_LEFT_TO_RIGHT, 10);
-        labelFont  = new Font("Verdana", Font.LAYOUT_LEFT_TO_RIGHT, 20);
+        font = new Font("Verdana", Font.PLAIN, 10);
+        labelFont = new Font("Verdana", Font.PLAIN, 20);
 
         //Creating tabbed pane with font
         tabbedPane = new JTabbedPane();
         tabbedPane.setFont(font);
 
         //Creating an array of statusLabels
-        statusLabelList = new JLabel[quantity];
+        statusLabelList = new ArrayList<>(quantity);
         for (int i = 0; i < quantity; i++) {
-            statusLabelList[i] = new JLabel("                      Start Script                      ");
-            statusLabelList[i].setFont(labelFont);
-            statusLabelList[i].setVisible(true);
-            statusLabelList[i].setSize(313, 110);
-            statusLabelList[i].setHorizontalAlignment(2);
-            statusLabelList[i].setLocation(200, 200);
+            statusLabelList.add(new JLabel());
         }
+        statusLabelList.forEach(label -> {
+            label.setVisible(true);
+            label.setFont(labelFont);
+            label.setHorizontalAlignment(2);
+            label.setLocation(200, 200);
+            label.setSize(313, 110);
+            label.setText(String.format("%sStart Script%s", STATUS_LABEL_GAP, STATUS_LABEL_GAP));
+        });
 
         //Adding timer execution
-        final TimerTick tm = new TimerTick();
-        tm.setStatusLabelList(statusLabelList);
+        TimerTick tm = new TimerTick(statusLabelList);
 
         //Adding Common timer to our tool,
         timer = new Timer(1000, tm);
@@ -54,8 +65,8 @@ public class TestFrame extends JFrame {
 
         //Adding all tabs to tabbed pane
         tabbedPane.addTab("AppDataLogs", new AppDataLogs(timer, tm, font, statusLabelList));
-        tabbedPane.addTab("Application", new Application(timer, tm, font, statusLabelList));
-        tabbedPane.addTab("Dumps", new Dumps(timer, tm, font, statusLabelList));
+        tabbedPane.addTab("Application", new Application(tm, font, statusLabelList));
+        tabbedPane.addTab("Dumps", new Dumps(tm, font, statusLabelList));
         tabbedPane.addTab("Execute", new Execute(timer, tm, font, statusLabelList));
         tabbedPane.addTab("Installation", new Installation(timer, tm, font, statusLabelList));
         tabbedPane.addTab("Links", new Links(timer, tm, font, statusLabelList));

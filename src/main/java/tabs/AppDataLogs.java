@@ -30,9 +30,9 @@ public class AppDataLogs extends JPanel {
     // after buttons below have been pressed
     //todo Move this method to abstract class
     public void timeReset(int seconds, Timer timer, TimerTick tm) {
-        timer.stop();             //Stopping previous timer before execution of current script
-        tm.setCountdown(seconds); //Setting time of Script execution
-        timer.start();            //Starting timer after script initiation
+        tm.getTimer().stop();             //Stopping previous timer before execution of current script
+        tm.setCountdown(seconds);         //Setting time of Script execution
+        tm.getTimer().start();            //Starting timer after script initiation
     }
 
     private void addActionListenerToButton(final JButton button, final String command, final Timer timer,
@@ -52,7 +52,7 @@ public class AppDataLogs extends JPanel {
         });
     }
 
-    private void addButtonWithPreferencesToTab(final JButton button, String tooltip, Font font) {
+    private void addButtonWithPreferencesToTab(JButton button, String tooltip, Font font) {
         button.setFont(font);
         button.setVisible(true);
         button.setToolTipText(tooltip);

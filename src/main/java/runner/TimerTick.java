@@ -1,5 +1,6 @@
 package runner;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,8 +15,14 @@ public class TimerTick implements ActionListener {
 
     private Timer timer;
     private int countdown;
+    @Getter(AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
     private List<JLabel> statusLabelList;
     private static final String STATUS_LABEL_CAPTION_GAP = "                                ";
+
+    public TimerTick(List<JLabel> statusLabelList){
+        this.statusLabelList = statusLabelList;
+    }
 
     //Setting time remaining in all Labels on all Tabs
     public void actionPerformed(ActionEvent e) {

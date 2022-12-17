@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
 
 public class Registry extends JPanel {
 
@@ -67,7 +68,7 @@ public class Registry extends JPanel {
         };
     }
 
-    public Registry(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
+    public Registry(Timer timer, TimerTick tm, Font font, List<JLabel> statusLabelList) {
 
         //Create list of buttons
         button1 = new JButton("OpenRegistryEditor [1]");
@@ -96,7 +97,7 @@ public class Registry extends JPanel {
         button3.addKeyListener(listener7);
 
         //Add StatusLabel to tab
-        tabStatusLabel = statusLabel[7];
+        tabStatusLabel = statusLabelList.get(7);
         add(tabStatusLabel);
     }
 }

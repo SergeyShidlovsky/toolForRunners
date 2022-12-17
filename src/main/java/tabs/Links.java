@@ -6,7 +6,7 @@ import runner.TimerTick;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-
+import java.util.List;
 public class Links extends JPanel {
 
     final JButton button1;
@@ -58,7 +58,7 @@ public class Links extends JPanel {
         add(button);
     }
 
-    public Links(final Timer timer, final TimerTick tm, Font font, JLabel[] statusLabel) {
+    public Links(final Timer timer, final TimerTick tm, Font font, List<JLabel> statusLabelList) {
 
         //Create list of buttons
         button1 = new JButton("Firmware [1]");
@@ -162,7 +162,7 @@ public class Links extends JPanel {
         button12.addKeyListener(listener5);
 
         //Add StatusLabel to tab
-        tabStatusLabel = statusLabel[5];
+        tabStatusLabel = statusLabelList.get(5);
         add(tabStatusLabel);
     }
 }
