@@ -8,74 +8,26 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.List;
 
-public class Application extends JPanel {
+public class Application extends AbstractTab {
 
     final JButton button1;
     final JButton button2;
     final JButton button3;
     final JButton button4;
-    private JLabel tabStatusLabel;
-    private KeyListener listener;
-
-    //Adding method for reset timer with new value
-    // after buttons below have been pressed
-    //todo Move this method to abstract class
-    public void timeReset(int seconds, TimerTick tm) {
-        tm.getTimer().stop();             //Stopping previous timer before execution of current script
-        tm.setCountdown(seconds);          //Setting time of  Script execution
-        tm.getTimer().start();            //Starting timer after script initiation
-    }
-
-    private void addActionListenerToButton(JButton button, String command, TimerTick tm, int delay) {
-        button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                //Button will perform next actions
-                if (ae.getSource() == button) {
-                    try {
-                        Runtime.getRuntime().exec(command);
-                        timeReset(delay, tm);
-                    } catch (Exception r) {
-                        tm.showError();
-                    }
-                }
-            }
-        });
-    }
 
     public Application( TimerTick tm, Font font, List<JLabel> statusLabelList) {
 
-        //Configure visual settings of Button1
-        button1 = new JButton("Restart With Cleared Appdata Programdata Restrt Service [1]");
-        button1.setFont(font);
-        button1.setSize(313, 110);
-        add(button1);
+        //Create list of buttons
+        button1 = new JButton("Restart With Cleared Appdata Programdata Restart Service [1]");
+        button2 = new JButton("Restart With Cleared Appdata Programdata Restart Service With BackUp [2]");
+        button3 = new JButton("Restart With Debug Logging And Cleared Appdata Programdata Restrt Service [3]");
+        button4 = new JButton("Restart With Debug Logging And Cleared Appdata Programdata Restart Service With BackUp [4]");
 
-        //Configure visual setting of Button2
-        button2 = new JButton("Restart With Cleared Appdata Programdata " +
-                "Restart Service With BackUp [2]");
-        button2.setFont(font);
-        button2.setVisible(true);
-        button2.setToolTipText("");
-        button2.setSize(313, 110);
-        add(button2);
-
-        //Configure visual settings of Button3
-        button3 = new JButton("Restart With Debug Logging And Cleared " +
-                "Appdata Programdata Restrt Service [3]");
-        button3.setFont(font);
-        button3.setVisible(true);
-        button3.setToolTipText("");
-        button3.setSize(313, 110);
-        add(button3);
-
-        //Configure visual setting of Button4
-        button4 = new JButton("Restart With Debug Logging And Cleared Appdata Programdata " +
-                "Restart Service With BackUp [4]");
-        button4.setFont(font);
-        button4.setVisible(true);
-        button4.setToolTipText("");
-        button4.setSize(313, 110);
-        add(button4);
+        //Add all buttons to tab
+        addButtonWithPreferencesToTab(button1, "Restart With Cleared Appdata Programdata Restart Service", font, KeyEvent.VK_1);
+        addButtonWithPreferencesToTab(button2, "Restart With Cleared Appdata Programdata Restart Service With BackUp", font, KeyEvent.VK_2);
+        addButtonWithPreferencesToTab(button3, "Restart With Cleared Appdata Programdata Restart Service", font, KeyEvent.VK_3);
+        addButtonWithPreferencesToTab(button4, "Restart With Cleared Appdata Programdata Restart Service", font, KeyEvent.VK_4);
 
         //Add ActionListeners on all buttons
         addActionListenerToButton(button1, LinksApplication
@@ -113,10 +65,7 @@ public class Application extends JPanel {
         };
 
         //Add key Listeners to all Buttons
-        button1.addKeyListener(listener);
-        button2.addKeyListener(listener);
-        button3.addKeyListener(listener);
-        button4.addKeyListener(listener);
+        buttonAssignment.values().forEach(button -> button.addKeyListener(listener));
 
         //Add StatusLabel to tab
         tabStatusLabel = statusLabelList.get(1);
