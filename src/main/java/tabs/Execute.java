@@ -21,7 +21,7 @@ public class Execute extends AbstractTab {
     final JButton button7;
     final JButton button8;
 
-    public Execute(Timer timer, final TimerTick tm, Font font, List<JLabel> statusLabelList) {
+    public Execute(TimerTick tm, Font font, List<JLabel> statusLabelList) {
 
         //Create list of buttons
         button1 = new JButton(" Application wizard [1] ");
@@ -46,12 +46,12 @@ public class Execute extends AbstractTab {
         //Add ActionListener to all buttons
         addActionListenerToButton(button1, LinksExecute.OPEN_APPLICATION_WIZARD.getValue(), tm, 2);
         addActionListenerToButton(button2, LinksExecute.OPEN_AUDIO_SETTINGS.getValue(), tm, 2);
-        addActionListenerToButton(button1, LinksExecute.OPEN_DEVICE_MANAGER.getValue(), tm, 2);
-        addActionListenerToButton(button1, LinksExecute.OPEN_DEVICE_AND_PRINTERS.getValue(), tm, 2);
-        addActionListenerToButton(button1, LinksExecute.OPEN_DEVICE_METADATA.getValue(), tm, 2);
-        addActionListenerToButton(button1, LinksExecute.OPEN_DPR_CONNECTION.getValue(), tm, 2);
-        addActionListenerToButton(button1, LinksExecute.OPEN_TASK_MANAGER.getValue(), tm, 2);
-        addActionListenerToButton(button1, LinksExecute.OPEN_UPDATE_SERVICE.getValue(), tm, 2);
+        addActionListenerToButton(button3, LinksExecute.OPEN_DEVICE_MANAGER.getValue(), tm, 2);
+        addActionListenerToButton(button4, LinksExecute.OPEN_DEVICE_AND_PRINTERS.getValue(), tm, 2);
+        addActionListenerToButton(button5, LinksExecute.OPEN_DEVICE_METADATA.getValue(), tm, 2);
+        addActionListenerToButton(button6, LinksExecute.OPEN_DPR_CONNECTION.getValue(), tm, 2);
+        addActionListenerToButton(button7, LinksExecute.OPEN_TASK_MANAGER.getValue(), tm, 2);
+        addActionListenerToButton(button8, LinksExecute.OPEN_UPDATE_SERVICE.getValue(), tm, 2);
 
         //Create tab-specific KeyListener
         listener = addKeyListenerToTab();
