@@ -10,12 +10,12 @@ import java.util.List;
 
 public class Application extends AbstractTab {
 
-    final JButton button1;
-    final JButton button2;
-    final JButton button3;
-    final JButton button4;
+    private JButton button1;
+    private JButton button2;
+    private JButton button3;
+    private JButton button4;
 
-    public Application( TimerTick tm, Font font, List<JLabel> statusLabelList) {
+    public Application(TimerTick tm, Font font, List<JLabel> statusLabelList) {
 
         //Create list of buttons
         button1 = new JButton("Restart With Cleared Appdata Programdata Restart Service [1]");
@@ -44,25 +44,7 @@ public class Application extends AbstractTab {
                 .getValue(), tm, 1);
 
         //Add KeyListener to tab
-        listener = new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                switch (e.getKeyCode()) {
-                    case KeyEvent.VK_1:
-                        button1.doClick();
-                        break;
-                    case KeyEvent.VK_2:
-                        button2.doClick();
-                        break;
-                    case KeyEvent.VK_3:
-                        button3.doClick();
-                        break;
-                    case KeyEvent.VK_4:
-                        button4.doClick();
-                        break;
-                }
-            }
-        };
+        listener = addKeyListenerToTab();
 
         //Add key Listeners to all Buttons
         buttonAssignment.values().forEach(button -> button.addKeyListener(listener));
