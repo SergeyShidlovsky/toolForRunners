@@ -68,7 +68,7 @@ public class TestFrame extends JFrame {
         tabbedPane.addTab("Application", new Application(tm, font, statusLabelList));
         tabbedPane.addTab("Dumps", new Dumps(tm, font, statusLabelList));
         tabbedPane.addTab("Execute", new Execute(tm, font, statusLabelList));
-        tabbedPane.addTab("Installation", new Installation(timer, tm, font, statusLabelList));
+        tabbedPane.addTab("Installation", new Installation(tm, font, statusLabelList));
         tabbedPane.addTab("Links", new Links(timer, tm, font, statusLabelList));
         tabbedPane.addTab("Network", new Network(timer, tm, font, statusLabelList));
         tabbedPane.addTab("Registry", new Registry(timer, tm, font, statusLabelList));
