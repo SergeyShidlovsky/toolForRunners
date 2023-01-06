@@ -72,7 +72,7 @@ public class TestFrame extends JFrame {
         tabbedPane.addTab("Links", new Links(tm, font, statusLabelList));
         tabbedPane.addTab("Network", new Network(tm, font, statusLabelList));
         tabbedPane.addTab("Registry", new Registry(tm, font, statusLabelList));
-        tabbedPane.addTab("Services", new Services(timer, tm, font, statusLabelList));
+        tabbedPane.addTab("Services", new Services(tm, font, statusLabelList));
 
         //Adding tabbed pane to jFrame and Setting preferences
         setPreferredSize(new Dimension(655, 215));
