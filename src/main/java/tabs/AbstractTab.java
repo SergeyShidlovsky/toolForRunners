@@ -23,7 +23,7 @@ public abstract class AbstractTab extends JPanel {
     // after buttons below have been pressed
     protected void timeReset(int seconds, TimerTick tm) {
         tm.getTimer().stop();     //Stopping previous timer before execution of current script
-        tm.setCountdown(seconds); //Setting time of  Script execution
+        tm.setCountdown(seconds);
         tm.getTimer().start();    //Starting timer after script initiation
     }
 
