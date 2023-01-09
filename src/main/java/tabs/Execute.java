@@ -1,13 +1,11 @@
 package tabs;
 
 import linkenums.LinksExecute;
-import runner.TimerTick;
+import runner.TimerTickListener;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.List;
 
 public class Execute extends AbstractTab {
@@ -21,7 +19,7 @@ public class Execute extends AbstractTab {
     final JButton button7;
     final JButton button8;
 
-    public Execute(TimerTick tm, Font font, List<JLabel> statusLabelList) {
+    public Execute(TimerTickListener tm, Font font, List<JLabel> statusLabelList) {
 
         //Create list of buttons
         button1 = new JButton(" Application wizard [1] ");

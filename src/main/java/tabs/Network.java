@@ -1,13 +1,12 @@
 package tabs;
 
 import linkenums.LinksNetwork;
-import runner.TimerTick;
+import runner.TimerTickListener;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.List;
 
 public class Network extends AbstractTab {
@@ -17,7 +16,7 @@ public class Network extends AbstractTab {
     final JButton button3;
 
 
-    public Network(TimerTick tm, Font font, List<JLabel> statusLabelList) {
+    public Network(TimerTickListener tm, Font font, List<JLabel> statusLabelList) {
 
         //Create list of buttons
         button1 = new JButton("DisableNetworkAdapter [1]");

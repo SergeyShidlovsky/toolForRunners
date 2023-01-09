@@ -1,7 +1,7 @@
 package tabs;
 
 import linkenums.LinksApplication;
-import runner.TimerTick;
+import runner.TimerTickListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,7 +15,7 @@ public class Application extends AbstractTab {
     private JButton button3;
     private JButton button4;
 
-    public Application(TimerTick tm, Font font, List<JLabel> statusLabelList) {
+    public Application(TimerTickListener tm, Font font, List<JLabel> statusLabelList) {
 
         //Create list of buttons
         button1 = new JButton("Restart With Cleared Appdata Programdata Restart Service [1]");

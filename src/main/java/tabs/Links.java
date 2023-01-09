@@ -1,7 +1,7 @@
 package tabs;
 
 import linkenums.LinksLinks;
-import runner.TimerTick;
+import runner.TimerTickListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,7 +22,7 @@ public class Links extends AbstractTab {
     final JButton button11;
     final JButton button12;
 
-    public Links(TimerTick tm, Font font, List<JLabel> statusLabelList) {
+    public Links(TimerTickListener tm, Font font, List<JLabel> statusLabelList) {
 
         //Create list of buttons
         button1 = new JButton("Firmware [1]");

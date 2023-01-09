@@ -1,7 +1,7 @@
 package tabs;
 
 import linkenums.LinksDumps;
-import runner.TimerTick;
+import runner.TimerTickListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,7 +16,7 @@ public class Dumps extends AbstractTab{
     private JButton button4;
     private JButton button5;
 
-    public Dumps(TimerTick tm, Font font, List<JLabel> statusLabelList) {
+    public Dumps(TimerTickListener tm, Font font, List<JLabel> statusLabelList) {
 
         //Create list of buttons
         button1 = new JButton("Do Not Attach Last CUE Dump [1] ");

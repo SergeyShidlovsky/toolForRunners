@@ -1,7 +1,7 @@
 package tabs;
 
 import linkenums.LinksAppDataLogs;
-import runner.TimerTick;
+import runner.TimerTickListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,14 +29,14 @@ public class AppDataLogs extends JPanel {
     //Adding method for reset timer with new value
     // after buttons below have been pressed
     //todo Move this method to abstract class
-    public void timeReset(int seconds, Timer timer, TimerTick tm) {
+    public void timeReset(int seconds, Timer timer, TimerTickListener tm) {
         tm.getTimer().stop();             //Stopping previous timer before execution of current script
         tm.setCountdown(seconds);         //Setting time of Script execution
         tm.getTimer().start();            //Starting timer after script initiation
     }
 
     private void addActionListenerToButton(final JButton button, final String command, final Timer timer,
-                                           final TimerTick tm, final int delay) {
+                                           final TimerTickListener tm, final int delay) {
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 //Button1 will perform next actions
@@ -60,7 +60,7 @@ public class AppDataLogs extends JPanel {
         add(button);
     }
 
-    public AppDataLogs(Timer timer, TimerTick tm, Font font, List<JLabel> statusLabelList) {
+    public AppDataLogs(Timer timer, TimerTickListener tm, Font font, List<JLabel> statusLabelList) {
 
         //Create list of buttons
         button1 = new JButton("Clean Logs [1] ");

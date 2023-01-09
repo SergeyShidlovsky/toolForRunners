@@ -1,13 +1,11 @@
 package tabs;
 
 import linkenums.LinksInstallation;
-import runner.TimerTick;
+import runner.TimerTickListener;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.List;
 
 public class Installation extends AbstractTab {
@@ -15,7 +13,7 @@ public class Installation extends AbstractTab {
     private JButton button1;
     private JButton button2;
 
-    public Installation(TimerTick tm, Font font, List<JLabel> statusLabelList) {
+    public Installation(TimerTickListener tm, Font font, List<JLabel> statusLabelList) {
 
         //Create list of buttons
         button1 = new JButton("GetInstallLog [1]");

@@ -11,7 +11,7 @@ import java.util.List;
 
 @Setter
 @Getter
-public class TimerTick implements ActionListener {
+public class TimerTickListener implements ActionListener {
 
     private Timer timer;
     private int countdown;
@@ -20,7 +20,7 @@ public class TimerTick implements ActionListener {
     private List<JLabel> statusLabelList;
     private static final String STATUS_LABEL_CAPTION_GAP = "                                ";
 
-    public TimerTick(List<JLabel> statusLabelList){
+    public TimerTickListener(List<JLabel> statusLabelList){
         this.statusLabelList = statusLabelList;
     }
 

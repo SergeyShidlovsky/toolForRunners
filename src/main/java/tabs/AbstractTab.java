@@ -1,6 +1,6 @@
 package tabs;
 
-import runner.TimerTick;
+import runner.TimerTickListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,13 +21,13 @@ public abstract class AbstractTab extends JPanel {
 
     //Adding method for reset timer with new value
     // after buttons below have been pressed
-    protected void timeReset(int seconds, TimerTick tm) {
+    protected void timeReset(int seconds, TimerTickListener tm) {
         tm.getTimer().stop();     //Stopping previous timer before execution of current script
         tm.setCountdown(seconds);
         tm.getTimer().start();    //Starting timer after script initiation
     }
 
-    protected void addActionListenerToButton(JButton button, String command, TimerTick tm, int delay) {
+    protected void addActionListenerToButton(JButton button, String command, TimerTickListener tm, int delay) {
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 //Button will perform next actions

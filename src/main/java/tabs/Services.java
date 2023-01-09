@@ -1,13 +1,12 @@
 package tabs;
 
 import linkenums.LinksServices;
-import runner.TimerTick;
+import runner.TimerTickListener;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.List;
 
 public class Services extends AbstractTab {
@@ -18,7 +17,7 @@ public class Services extends AbstractTab {
     final JButton button4;
     final JButton button5;
 
-    public Services(TimerTick tm, Font font, List<JLabel> statusLabelList) {
+    public Services(TimerTickListener tm, Font font, List<JLabel> statusLabelList) {
 
         //Create list of buttons
         button1 = new JButton("Open Services [1]");

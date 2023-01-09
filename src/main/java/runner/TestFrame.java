@@ -6,7 +6,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Created by Sergey on 13.06.17.
@@ -57,7 +56,7 @@ public class TestFrame extends JFrame {
         });
 
         //Adding timer execution
-        TimerTick tm = new TimerTick(statusLabelList);
+        TimerTickListener tm = new TimerTickListener(statusLabelList);
 
         //Adding Common timer to our tool,
         timer = new Timer(1000, tm);
