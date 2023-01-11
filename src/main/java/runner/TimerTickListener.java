@@ -20,6 +20,7 @@ public class TimerTickListener implements ActionListener {
     private List<JLabel> statusLabelList;
     private static final String STATUS_LABEL_CAPTION_GAP = "                                ";
 
+
     public TimerTickListener(List<JLabel> statusLabelList){
         this.statusLabelList = statusLabelList;
     }
