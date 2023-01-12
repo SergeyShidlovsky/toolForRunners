@@ -43,6 +43,7 @@ public class TimerTickListener implements ActionListener {
 
     //Private method to setting text on all tabs
     private void showTextOnAllLabels(String text) {
+
         statusLabelList.forEach(jLabel ->
                 jLabel.setText(String.format("%s%s%s", STATUS_LABEL_CAPTION_GAP, text, STATUS_LABEL_CAPTION_GAP)));
     }
