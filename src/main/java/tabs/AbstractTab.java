@@ -58,6 +58,7 @@ public abstract class AbstractTab extends JPanel {
             @Override
             public void keyPressed(KeyEvent e) {
                 Integer currentAssignmentCode;
+                //ToDo replace with forEach
                 for (int i = 0; i < buttonAssignment.values().size(); i++) {
                     currentAssignmentCode = (Integer) buttonAssignment.keySet().toArray()[i];
                     if (e.getKeyCode() == currentAssignmentCode) {
