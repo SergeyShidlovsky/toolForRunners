@@ -63,7 +63,7 @@ public class TestFrame extends JFrame {
         tm.setTimer(timer);
 
         //Adding all tabs to tabbed pane
-        tabbedPane.addTab("AppDataLogs", new AppDataLogs(timer, tm, font, statusLabelList));
+        tabbedPane.addTab("AppDataLogs", new AppDataLogs(tm, font, statusLabelList));
         tabbedPane.addTab("Application", new Application(tm, font, statusLabelList));
         tabbedPane.addTab("Dumps", new Dumps(tm, font, statusLabelList));
         tabbedPane.addTab("Execute", new Execute(tm, font, statusLabelList));
